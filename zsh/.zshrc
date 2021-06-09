@@ -43,6 +43,9 @@ antigen apply
 
 ## UBUNTU ALIASES
 alias apt-upgrade="sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove"
+install () {
+  sudo apt install $1
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
