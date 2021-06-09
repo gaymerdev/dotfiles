@@ -1,6 +1,4 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -39,10 +37,12 @@ antigen theme romkatv/powerlevel10k
 
 antigen apply
 
-### NOTES:
-# Install antigen with:
-# curl -L git.io/antigen > $HOME/.antigen.zsh
-# git clone https://github.com/zsh-users/antigen.git ~/.antigen
+##################
+#~   ALIASES    ~#
+##################
+
+## UBUNTU ALIASES
+alias apt-upgrade="sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
