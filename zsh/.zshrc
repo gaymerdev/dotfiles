@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source $HOME/antigen.zsh
+source $HOME/.antigen.zsh
 
 ##################
 #~   LIBRARY    ~#
@@ -41,8 +41,8 @@ antigen apply
 
 ### NOTES:
 # Install antigen with:
-# curl -L git.io/antigen > antigen.zsh
-# git clone https://github.com/zsh-users/antigen.git ~/antigen
+# curl -L git.io/antigen > $HOME/.antigen.zsh
+# git clone https://github.com/zsh-users/antigen.git ~/.antigen
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
