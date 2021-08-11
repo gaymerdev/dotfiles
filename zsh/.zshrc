@@ -43,11 +43,14 @@ antigen apply
 
 ## UBUNTU ALIASES
 alias apt-upgrade="sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove"
-install () {
+aptstall () {
   sudo apt install $1
 }
 pacstall () {
   sudo pacman -Sy $1
+}
+multistart () {
+  sudo /home/minecraft/multicraft/bin/multicraft start
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
