@@ -49,6 +49,9 @@ aptstall () {
 pacstall () {
   sudo pacman -Sy $1
 }
+pacdate () {
+  sudo pacman -Syyu && yay -Syyu --noconfirm
+}
 multistart () {
   sudo /home/minecraft/multicraft/bin/multicraft start
 }
