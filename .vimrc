@@ -5,7 +5,7 @@
         echo "Installing Vundle..."
         echo ""
         call mkdir($HOME . '/.vim/bundle', 'p')
-        silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim    
+        silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         let vundle_status=0
     endif
 
@@ -18,7 +18,7 @@
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'tpope/vim-fugitive'
     Plugin 'scrooloose/syntastic'
-    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'tomasiser/vim-code-dark'
 
     if vundle_status == 0
         echo "Installing Vundle packages. Any keymap errors can be ignored."
@@ -31,3 +31,4 @@
 " <<END>> Checking and Installing the Vundle Package Manager if it does not exist
 
 syntax enable
+colorscheme codedark
