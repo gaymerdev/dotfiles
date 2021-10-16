@@ -55,6 +55,9 @@ pacdate () {
 multistart () {
   sudo /home/minecraft/multicraft/bin/multicraft start
 }
+multistop () {
+  sudo /home/minecraft/multicraft/bin/multicraft stop
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
