@@ -22,3 +22,19 @@ then
 else
     ln -s $HOME/.profile-configs/zsh/.p10k.zsh $HOME/.p10k.zsh
 fi
+
+if [[ -f $HOME/.digrc ]]
+then
+    rm $HOME/.digrc
+    ln -s $HOME/.profile-configs/.digrc $HOME/.digrc
+else
+    ln -s $HOME/.profile-configs/.digrc $HOME/.digrc
+fi
+
+if [[ -f $HOME/.vimrc ]]
+then
+    rm $HOME/.vimrc
+    ln -s $HOME/.profile-configs/.vimrc $HOME/.vimrc
+else
+    ln -s $HOME/.profile-configs/.vimrc $HOME/.vimrc
+fi
