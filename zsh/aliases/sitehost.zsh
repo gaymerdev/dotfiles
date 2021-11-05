@@ -11,8 +11,11 @@ goto () {
 }
 
 checkhtaccess () {
-    if [[ -f /groups/$groupname/web/.htaccess ]]
-        then less /groups/$groupname/web/.htaccess
-        else echo "No .htaccess found for $groupname"
+    htaccess=/groups/$1/web/.htaccess
+    if [[ -f $htaccess ]]
+    then
+        less $htaccess
+    else
+        echo "No .htaccess found for $1"
     fi
 }
