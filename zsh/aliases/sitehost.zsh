@@ -9,7 +9,8 @@ checkfiles () {
 goto () {
     cd /groups/$1/web/
     echo "👋Welcome to $(pwd)👋"
-    ls
+    echo "======================"
+    ls -al --color=auto
 }
 
 checkhtaccess () {
