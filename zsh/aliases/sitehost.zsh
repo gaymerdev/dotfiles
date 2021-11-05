@@ -3,11 +3,11 @@
 #############################
 
 checkfiles () {
-    du -hd0 /groups/$groupname/web/* | sort -k1 -hr | head -n 15
+    du -hd0 /groups/$1/web/* | sort -k1 -hr | head -n 15
 }
 
 goto () {
-    cd /groups/$groupname/web/
+    cd /groups/$1/web/
 }
 
 checkhtaccess () {
