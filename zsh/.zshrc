@@ -50,22 +50,22 @@ find_hostname=$(hostname)
 case $find_hostname in
   mail)
     echo -n "Importing gaymerfamily aliases..."
-    source $HOME/.profile-configs/zsh/aliases/gaymerfamily.zsh
+    source $HOME/.config/profile/zsh/aliases/gaymerfamily.zsh
     ;;
   manjaro)
     echo -n "Importing manjaro aliases..."
-    source $HOME/.profile-configs/zsh/aliases/manjaro.zsh
+    source $HOME/.config/profile/zsh/aliases/manjaro.zsh
     ;;
   ssh-01-bl-prod | ssh-01-bl-test)
     echo -n "Importing Sitehost aliases..."
-    source $HOME/.profile-configs/zsh/aliases/sitehost.zsh
+    source $HOME/.config/profile/zsh/aliases/sitehost.zsh
     ;;
   *)
     echo -n "No aliases found for this hostname."
     ;;
 esac
 
-source $HOME/.profile-configs/zsh/aliases/common.zsh
+source $HOME/.config/profile/zsh/aliases/common.zsh
 
 ###############
 #~  CONFIGS  ~#
