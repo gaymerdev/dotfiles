@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-dpkg -s curl &> /dev/null
-
 if [[ ! -f $HOME/.antigen.zsh ]] && [[ $? -eq 0 ]]
 then
     curl -L git.io/antigen > $HOME/.antigen.zsh
