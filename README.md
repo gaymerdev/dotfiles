@@ -17,11 +17,11 @@ Placeholder
 
 ## SSH Client
 
-Placeholder
+Contains aliases for the home and work servers. This sets particular config options. Notably, the `control` options do not work on Windows machines.
 
 ## DIG
 
-Placeholder
+Remove general clutter from the output when using the `dig` command. This returns only the IPv4 addresses. Add `AAAA` to the command to return the IPv6 records, such as `dig cloudflare.com AAAA`.
 
 ## Vim
 
