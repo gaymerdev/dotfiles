@@ -1,60 +1,19 @@
 #!/usr/bin/env bash
 
-##################
-#   ZSH IMPORT   #
-##################
-if [[ ! -f $HOME/.antigen.zsh ]] && [[ $? -eq 0 ]]
-then
-    curl -L git.io/antigen > $HOME/.antigen.zsh
-fi
+## Import the Antigen plugin manager
+if [[ ! -f $HOME/.antigen.zsh ]]; then curl -L git.io/antigen > $HOME/.antigen.zsh; fi
 
-if [[ -f $HOME/.zshrc ]]
+## Symnbolically link profile configs from the repository to their expected locations.
+## Create backups of the file if one aleady exists.
+if [[ -d $HOME/.configs/profile ]]
 then
-    rm $HOME/.zshrc
-    ln -s $HOME/.configs/profile/zsh/.zshrc $HOME/.zshrc
+    ln --symbolic --backup  $HOME/.configs/profile/zsh/.zshrc $HOME/.zshrc
+    ln --symbolic --backup  $HOME/.configs/profile/zsh/.p10k.zsh $HOME/.p10k.zsh
+    ln --symbolic --backup  $HOME/.configs/profile/ssh/config $HOME/.ssh/config
+    ln --symbolic --backup  $HOME/.configs/profile/.digrc $HOME/.digrc
+    ln --symbolic --backup  $HOME/.configs/profile/.vimrc $HOME/.vimrc
 else
-    ln -s $HOME/.configs/profile/zsh/.zshrc $HOME/.zshrc
-fi
-
-if [[ -f $HOME/.p10k.zsh ]]
-then
-    rm $HOME/.p10k.zsh
-    ln -s $HOME/.configs/profile/zsh/.p10k.zsh $HOME/.p10k.zsh
-else
-    ln -s $HOME/.configs/profile/zsh/.p10k.zsh $HOME/.p10k.zsh
-fi
-
-##################
-#   SSH IMPORT   #
-##################
-if [[ -f $HOME/.ssh/config ]]
-then
-    rm $HOME/.ssh/config
-    ln -s $HOME/.configs/profile/ssh/config $HOME/.ssh/config
-else
-    ln -s $HOME/.configs/profile/ssh/config $HOME/.ssh/config
-fi
-
-##################
-#   DIG IMPORT   #
-##################
-if [[ -f $HOME/.digrc ]]
-then
-    rm $HOME/.digrc
-    ln -s $HOME/.configs/profile/.digrc $HOME/.digrc
-else
-    ln -s $HOME/.configs/profile/.digrc $HOME/.digrc
-fi
-
-##################
-#   VIM IMPORT   #
-##################
-if [[ -f $HOME/.vimrc ]]
-then
-    rm $HOME/.vimrc
-    ln -s $HOME/.configs/profile/.vimrc $HOME/.vimrc
-else
-    ln -s $HOME/.configs/profile/.vimrc $HOME/.vimrc
+    echo "The repository needs to be @ $HOME/.configs/profile."
 fi
 
 #### Switch to ZSH Shell
