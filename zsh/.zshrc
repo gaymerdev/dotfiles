@@ -45,17 +45,26 @@ antigen apply
 #~   ALIASES    ~#
 ##################
 
-## Load different alias files depending on the distro
-if hostname | grep -qiE "ssh-01-bl-prod|ssh-01-bl-test";
-  then source $HOME/.profile-configs/zsh/aliases/sitehost.zsh;
-elif uname -a | grep -qi "Manjaro";
-  then source $HOME/.profile-configs/zsh/aliases/manjaro.zsh;
-elif uname -a | grep -qiE "Ubuntu|WSL2"; 
-  then source $HOME/.profile-configs/zsh/aliases/ubuntu.zsh;
-else echo "No aliases loaded"; 
-fi
+find_hostname=$(hostname)
 
-## Common non-distro specific aliases
+case $find_hostname in
+  mail)
+    echo -n "Importing gaymerfamily aliases..."
+    source $HOME/.profile-configs/zsh/aliases/gaymerfamily.zsh
+    ;;
+  manjaro)
+    echo -n "Importing manjaro aliases..."
+    source $HOME/.profile-configs/zsh/aliases/manjaro.zsh
+    ;;
+  ssh-01-bl-prod | ssh-01-bl-test)
+    echo -n "Importing Sitehost aliases..."
+    source $HOME/.profile-configs/zsh/aliases/sitehost.zsh
+    ;;
+  *)
+    echo -n "No aliases found for this hostname."
+    ;;
+esac
+
 source $HOME/.profile-configs/zsh/aliases/common.zsh
 
 ###############
@@ -63,6 +72,7 @@ source $HOME/.profile-configs/zsh/aliases/common.zsh
 ###############
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
