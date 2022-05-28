@@ -22,6 +22,7 @@ antigen bundle pip
 antigen bundle ael-code/zsh-colored-man-pages
 antigen bundle command-not-found
 antigen bundle common-aliases
+antigen bundle cp
 antigen bundle vkolagotla/zsh-random-quotes
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-completions
