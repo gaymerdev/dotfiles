@@ -10,6 +10,7 @@ Placeholder
 
 - Uses the Antigen plugin manager
 - Uses the Powerline10K theme
+  - *Windows*:  requires a special font to render the theme as expected. [MesloLGS NF](https://github.com/fontmgr/MesloLGSNF) works well.
 - Loads aliases based on hostname of the server
 - If available, runs the `neofetch` command when loaded
 
