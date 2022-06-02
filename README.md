@@ -4,7 +4,7 @@ This repository contains, at the moment, configurations for the Z Shell (ZSH), S
 
 ## Setup Script
 
-Placeholder
+- Expects the repository to be cloned to `$HOME/.config/profile`
 
 ## ZSH
 
