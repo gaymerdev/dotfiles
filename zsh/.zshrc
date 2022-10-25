@@ -1,4 +1,4 @@
-if [[ $(command -v neofetch ) ]]; then neofetch; else echo ""; fi
+# if [[ $(command -v neofetch ) ]]; then neofetch; else echo ""; fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -49,16 +49,16 @@ antigen apply
 find_hostname=$(hostname)
 
 case $find_hostname in
-  mail)
-    echo -n "Importing gaymerfamily aliases..."
-    source $HOME/.config/profile/zsh/aliases/gaymerfamily.zsh
+  *server)
+    # echo -n "Importing linux server aliases..."
+    source $HOME/.config/profile/zsh/aliases/server.zsh
     ;;
-  manjaro)
-    echo -n "Importing manjaro aliases..."
-    source $HOME/.config/profile/zsh/aliases/manjaro.zsh
+  *home)
+    # echo -n "Importing home linux aliases..."
+    source $HOME/.config/profile/zsh/aliases/home.zsh
     ;;
   ssh-01-bl-prod | ssh-01-bl-test)
-    echo -n "Importing Sitehost aliases..."
+    # echo -n "Importing Sitehost aliases..."
     source $HOME/.config/profile/zsh/aliases/sitehost.zsh
     ;;
   *)

@@ -8,19 +8,16 @@ Host *
     ForwardX11Trusted yes
     ServerAliveInterval 60
     ServerAliveCountMax 30
-    ControlMaster auto
-    ControlPath ~/.ssh/controlmasters/%r@%h:%p.sock
-    ControlPersist 30m
     IdentityFile ~/.ssh/id_rsa
 
 # Configurations for home server
 
 Host home.user
-    HostName ssh.gaymerfamily.com
+    HostName 192.168.1.100
     User jonas
 
 Host home.root
-    HostName ssh.gaymerfamily.com
+    HostName 192.168.1.100
     User root
 
 ## Configurations for WebTech server(s)
