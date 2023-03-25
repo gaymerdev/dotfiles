@@ -42,38 +42,14 @@ antigen theme romkatv/powerlevel10k
 
 antigen apply
 
-##################
-#~   ALIASES    ~#
-##################
-
-find_hostname=$(hostname)
-
-case $find_hostname in
-  *server)
-    # echo -n "Importing linux server aliases..."
-    source $HOME/.config/profile/zsh/aliases/server.zsh
-    ;;
-  *home)
-    # echo -n "Importing home linux aliases..."
-    source $HOME/.config/profile/zsh/aliases/home.zsh
-    ;;
-  ssh-01-bl-prod | ssh-01-bl-test)
-    # echo -n "Importing Sitehost aliases..."
-    source $HOME/.config/profile/zsh/aliases/sitehost.zsh
-    ;;
-  *)
-    echo -n "No aliases found for this hostname."
-    ;;
-esac
-
-source $HOME/.config/profile/zsh/aliases/common.zsh
-
 ###############
 #~  CONFIGS  ~#
 ###############
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
+
+export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
