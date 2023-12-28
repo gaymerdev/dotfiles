@@ -22,13 +22,14 @@ antigen use oh-my-zsh
 ##################
 
 antigen bundle git
-antigen bundle cantino/mcfly
+# antigen bundle cantino/mcfly
 antigen bundle command-not-found
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle unixorn/fzf-zsh-plugin@main
 
 ##################
 #~    THEME     ~#
@@ -90,13 +91,6 @@ HISTFILE=~/.zhistory
 HISTSIZE=50000
 SAVEHIST=10000
 
-# Load Mcfly
-export MCFLY_FUZZY=true
-export MCFLY_RESULTS=20
-export MCFLY_INTERFACE_VIEW=BOTTOM
-export MCFLY_RESULTS_SORT=LAST_RUN
-eval "$(mcfly init zsh)"
-
 ###############
 #~  ALIASES  ~#
 ###############
@@ -110,7 +104,6 @@ alias l.='exa -ald --color=always --group-directories-first --icons .*' # show o
 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style snip --style changes --style header'
-[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
 # Common use
 alias grubup="sudo update-grub"
@@ -132,6 +125,27 @@ alias egrep='ugrep -E --color=auto'
 alias hw='hwinfo --short'                          # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"     # Sort installed packages according to size in MB (expac must be installed)
 alias ip='ip -color'
+
+# Easy tail & follow
+alias t='tail -f'
+
+# Head, Tail, Error redirect
+
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| most'
+alias -g LL='2>&1 | less'
+alias -g CA='2>&1 | cat -A'
+alias -g NE='2> /dev/null'
+alias -g NUL="> /dev/null 2>&1"
+
+# Find
+
+(( $+commands[duf] )) || alias duf='du -sh *'
+(( $+commands[fd] )) || alias fd='find . -type d -name'
+alias ff='find . -type f -name'
 
 # Distribution specific
 
@@ -169,14 +183,27 @@ function distro_aliases () {
 
     # Recent installed packages
     alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+  
+  elif [[ $distro == "Ubuntu" ]]; then
+    alias apt='aptitude'
+    alias upd='sudo aptitude update && sudo aptitude upgrade'
   fi
 }
+
+distro_aliases
 
 #################
 #~  LOCAL ENV  ~#
 #################
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
+
+# Load Mcfly
+export MCFLY_FUZZY=true
+export MCFLY_RESULTS=20
+export MCFLY_INTERFACE_VIEW=BOTTOM
+export MCFLY_RESULTS_SORT=LAST_RUN
+eval "$(mcfly init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
