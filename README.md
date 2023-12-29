@@ -7,6 +7,17 @@ Files included:
 - .vimrc
 - .zshrc
 
+## Quick Setup
+
+The files are structured in a way to make using GNU Stow fairly simple. Clone the directory and then...
+
+```
+cd dot-files
+stow dig
+stow vim
+stow zsh
+```
+
 ## DIG Configuration
 
 Uses the CloudFlare DNS (1.1.1.1) to resolve lookups and prunes down the information shows.
