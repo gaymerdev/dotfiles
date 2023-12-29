@@ -7,11 +7,14 @@ endif
 
 call plug#begin()
 
-Plug 'scrooloose/syntastic'
-Plug 'tomasiser/vim-code-dark'
+Plug 'dense-analysis/ale'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 
 call plug#end()
 
-colorscheme codedark
+colorscheme gruvbox8
+syntax on
+set number
+set cursorline

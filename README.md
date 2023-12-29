@@ -1,29 +1,30 @@
-# Linux Profile COnfigurations
+# Personal Linux DotFiles
 
-This repository contains, at the moment, configurations for the Z Shell (ZSH), SSH client, and the `dig` and `vim` commands.
+Files included:
 
-## Setup Script
+- .digrc
+- .p10k.zsh
+- .vimrc
+- .zshrc
 
-- Expects the repository to be cloned to `$HOME/.config/profile`
+## DIG Configuration
 
-## ZSH
+Uses the CloudFlare DNS (1.1.1.1) to resolve lookups and prunes down the information shows.
 
-- Uses the Antigen plugin manager
-- Uses the Powerline10K theme
-  - *Windows*:  requires a special font to render the theme as expected. [MesloLGS NF](https://github.com/fontmgr/MesloLGSNF) works well.
-- Loads aliases based on hostname of the server
-- If available, runs the `neofetch` command when loaded
+## powerlevel10k ZSH theme
 
-*Note:  a `.hushlogin` file can be created in the home directory to silence other SSH login banners.*
+[PowerLevel10k GitHub](https://github.com/romkatv/powerlevel10k)
 
-## SSH Client
+> !! IMPORTANT:  the Meslo Nerd font is recommended for the symbols and overall theme appearance. If the theme looks a bit odd, install the font and then select it in the terminal profile options.
 
-Contains aliases for the home and work servers. This sets particular config options. Notably, the `control` options do not work on Windows machines.
+The configuration file was created using the startup wizard and has no customizations beyond those initial selections.
 
-## DIG
+## VIM Configuration
 
-Remove general clutter from the output when using the `dig` command. This returns only the IPv4 addresses. Add `AAAA` to the command to return the IPv6 records, such as `dig cloudflare.com AAAA`.
+Installs the following VIM plugins:
 
-## Vim
+- Fugitive ([GitHub](https://github.com/tpope/vim-fugitive))
+- GruvBox8 theme ([GitHub](https://github.com/lifepillar/vim-gruvbox8))
+- ALE (Asynchronous Lint Engine) ([GitHub](https://github.com/dense-analysis/ale))
+- Sensible ([GitHub](https://github.com/tpope/vim-sensible))
 
-Placeholder
