@@ -18,6 +18,17 @@ stow vim
 stow zsh
 ```
 
+If the `stow` command is unavailable, and it cannot be installed, then the symbolic links will need to be created manually.
+
+```
+cd dot-files
+ln -s $PWD/dig/.digrc $HOME/.digrc
+ln -s $PWD/vim/.vimrc $HOME/.vimrc
+ln -s $PWD/zsh/.fzf.zsh $HOME/.fzf.zsh
+ln -s $PWD/zsh/.p10k.zsh $HOME/.p10k.zsh
+ln -s $PWD/zsh/.zshrc $HOME/.zshrc
+```
+
 ## DIG Configuration
 
 Uses the CloudFlare DNS (1.1.1.1) to resolve lookups and prunes down the information shows.
