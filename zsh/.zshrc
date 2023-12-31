@@ -6,7 +6,7 @@ fi
 
 # Display custom terminal title for easy identification
 function set_win_title(){
-  echo -ne "\033\0; $USER@$HOST:${PWD/$HOME/~} \007"
+  echo -ne "\033]0; $USER@$HOST:${PWD/$HOME/~} \007"
 }
 precmd_functions+=(set_win_title)
 
