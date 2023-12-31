@@ -12,7 +12,7 @@
 	insteadOf = gl:
 [user]
 	name = Jonas McClure
-	email = jonas@gaymerfamily.com
+	email = jonmcclu@proton.me
 	signingkey = ~/.ssh/id_rsa
 [gpg]
 	format = ssh
