@@ -1,5 +1,16 @@
-# Antigen download
+## Path section
+# Set $PATH if ~/.local/bin exist
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
 
+# Display custom terminal title for easy identification
+function set_win_title(){
+  echo -ne "\033\0; $USER@$HOST:${PWD/$HOME/~} \007"
+}
+precmd_functions+=(set_win_title)
+
+# Antigen download
 if [[ ! -f ~/.antigen.zsh ]]; then
   curl -L git.io/antigen > .antigen.zsh
 fi
