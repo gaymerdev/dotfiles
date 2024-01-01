@@ -13,7 +13,7 @@
 [user]
 	name = Jonas McClure
 	email = jonmcclu@proton.me
-	signingkey = ~/.ssh/id_gitlab
+	signingkey = ~/.ssh/id_ed25519
 [gpg]
 	format = ssh
 [commit]

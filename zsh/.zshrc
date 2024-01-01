@@ -203,6 +203,18 @@ function distro_aliases () {
 
 distro_aliases
 
+function mydig() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: mydig <domain1> [domain2 ...]"
+    return 1
+  fi
+
+  for domain in "$@"; do
+    dig A "$domain"
+    dig AAAA "$domain"
+  done
+}
+
 #################
 #~  LOCAL ENV  ~#
 #################
