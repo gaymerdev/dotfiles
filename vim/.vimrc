@@ -18,3 +18,4 @@ colorscheme gruvbox8
 syntax on
 set number
 set cursorline
+set bg=dark
