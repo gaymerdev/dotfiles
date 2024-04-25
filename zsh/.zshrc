@@ -4,15 +4,9 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH=$HOME/.local/bin:$PATH
 fi
 
-# Display custom terminal title for easy identification
-function set_win_title(){
-  echo -ne "\033]0; $USER@$HOST:${PWD/$HOME/~} \007"
-}
-precmd_functions+=(set_win_title)
-
 # Antigen download
 if [[ ! -f ~/.antigen.zsh ]]; then
-  curl -L git.io/antigen > .antigen.zsh
+  curl -L git.io/antigen > $HOME/.antigen.zsh
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -33,14 +27,12 @@ antigen use oh-my-zsh
 ##################
 
 antigen bundle git
-# antigen bundle cantino/mcfly
 antigen bundle command-not-found
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle unixorn/fzf-zsh-plugin@main
 
 ##################
 #~    THEME     ~#
@@ -106,15 +98,26 @@ SAVEHIST=10000
 #~  ALIASES  ~#
 ###############
 
-# Replace ls with eza
-alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
-alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='eza -l --color=always --group-directories-first --icons'  # long format
-alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
-alias l.='eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+if type "eza" > /dev/null 2>&1; then
+    # Replace ls with eza
+    alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+    alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+    alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+    alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+    alias l.='eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+fi
 
-# Replace some more things with better alternatives
-alias cat='bat --style header --style snip --style changes --style header'
+if type "batcat" > /dev/null 2>&1; then
+    # Replace cat with bat
+    alias cat='bat --style header --style snip --style changes --style header'
+fi
+
+if type "ugrep" > /dev/null 2>&1; then
+    Replace grep with ugrep
+    alias grep='ugrep --color=auto'
+    alias fgrep='ugrep -F --color=auto'
+    alias egrep='ugrep -E --color=auto'
+fi
 
 # Common use
 alias grubup="sudo update-grub"
@@ -130,9 +133,6 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-alias grep='ugrep --color=auto'
-alias fgrep='ugrep -F --color=auto'
-alias egrep='ugrep -E --color=auto'
 alias hw='hwinfo --short'                          # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"     # Sort installed packages according to size in MB (expac must be installed)
 alias ip='ip -color'
@@ -220,13 +220,6 @@ function mydig() {
 #################
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
-
-# Load Mcfly
-export MCFLY_FUZZY=true
-export MCFLY_RESULTS=20
-export MCFLY_INTERFACE_VIEW=BOTTOM
-export MCFLY_RESULTS_SORT=LAST_RUN
-eval "$(mcfly init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
